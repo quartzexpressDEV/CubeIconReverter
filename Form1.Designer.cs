@@ -35,6 +35,7 @@ namespace CubeIconReverter
             this.clear = new System.Windows.Forms.Button();
             this.close = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -43,10 +44,10 @@ namespace CubeIconReverter
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(40, 184);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(547, 42);
+            this.label1.Size = new System.Drawing.Size(562, 42);
             this.label1.TabIndex = 0;
-            this.label1.Text = "By clicking START, the server rp cache will be cleared so use this at ur own risk" +
-    "\r\nBy clicking CLEAR, the server rp cache will also be cleared";
+            this.label1.Text = "• By clicking START, the server rp cache will be cleared so use this at ur own ri" +
+    "sk \r\n• By clicking CLEAR, the server rp cache will also be cleared";
             // 
             // label3
             // 
@@ -116,12 +117,23 @@ namespace CubeIconReverter
             this.label2.Text = "CubeIconReverter";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(374, 136);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(75, 21);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "By quartz";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(60)))));
             this.ClientSize = new System.Drawing.Size(700, 450);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.close);
             this.Controls.Add(this.clear);
@@ -152,6 +164,7 @@ namespace CubeIconReverter
         private System.Windows.Forms.Button clear;
         private System.Windows.Forms.Button close;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label4;
     }
 }
 
