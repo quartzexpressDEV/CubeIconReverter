@@ -1,4 +1,7 @@
-﻿
+
+using System.Drawing;
+using System.Windows.Forms;
+
 namespace CubeIconReverter
 {
     partial class Form1
@@ -36,13 +39,15 @@ namespace CubeIconReverter
             this.close = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.Header = new System.Windows.Forms.Panel();
+            this.Header.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(40, 184);
+            this.label1.Location = new System.Drawing.Point(40, 203);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(562, 42);
             this.label1.TabIndex = 0;
@@ -95,11 +100,13 @@ namespace CubeIconReverter
             // close
             // 
             this.close.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(60)))));
+            this.close.Dock = System.Windows.Forms.DockStyle.Right;
             this.close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.close.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.close.Location = new System.Drawing.Point(650, 0);
+            this.close.Location = new System.Drawing.Point(660, 0);
+            this.close.Margin = new System.Windows.Forms.Padding(0);
             this.close.Name = "close";
-            this.close.Size = new System.Drawing.Size(50, 50);
+            this.close.Size = new System.Drawing.Size(40, 40);
             this.close.TabIndex = 5;
             this.close.Text = "X";
             this.close.UseVisualStyleBackColor = false;
@@ -127,15 +134,29 @@ namespace CubeIconReverter
             this.label4.TabIndex = 7;
             this.label4.Text = "By quartz";
             // 
+            // Header
+            // 
+            this.Header.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(35)))), ((int)(((byte)(60)))));
+            this.Header.Controls.Add(this.close);
+            this.Header.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Header.Location = new System.Drawing.Point(0, 0);
+            this.Header.Margin = new System.Windows.Forms.Padding(0);
+            this.Header.Name = "Header";
+            this.Header.Size = new System.Drawing.Size(700, 40);
+            this.Header.TabIndex = 8;
+            this.Header.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Header_MouseDown);
+            this.Header.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Header_MouseMove);
+            this.Header.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Header_MouseUp);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(60)))));
             this.ClientSize = new System.Drawing.Size(700, 450);
+            this.Controls.Add(this.Header);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.close);
             this.Controls.Add(this.clear);
             this.Controls.Add(this.start);
             this.Controls.Add(this.label3);
@@ -150,6 +171,7 @@ namespace CubeIconReverter
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CubeIconReverter";
+            this.Header.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -157,7 +179,6 @@ namespace CubeIconReverter
 
         #endregion
 
-        
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button start;
@@ -165,6 +186,10 @@ namespace CubeIconReverter
         private System.Windows.Forms.Button close;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
+        
+        private bool drag = false;
+        private Point startPoint = new Point(0, 0);
+        private System.Windows.Forms.Panel Header;
     }
 }
 
