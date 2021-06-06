@@ -1,16 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+using System;
 using System.Drawing;
 using System.IO;
 using System.IO.Compression;
-using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using CubeIconReverter.Properties;
 
 namespace CubeIconReverter
 {
@@ -39,12 +32,12 @@ namespace CubeIconReverter
             {
                 Directory.Delete(cachepath, true);
                 Directory.CreateDirectory(cachepath);
-                label3.Text = "cleared cache";
+                label3.Text = "cache cleared";
             }
             catch(Exception e)
             {
                 Console.WriteLine(e);
-                label3.Text = "error";
+                label3.Text = $"error: {e.Message}";
             }
             
         }
@@ -55,12 +48,45 @@ namespace CubeIconReverter
                 WebClient wc = new WebClient();
                 wc.DownloadFile($"{url}/default.zip", $"{cachepath}\\default.zip");
                 ZipFile.ExtractToDirectory($"{cachepath}\\default.zip", $"{cachepath}\\anticcpack");
-                label3.Text = "downloaded pack";
+                label3.Text = "pack downloaded";
             }
             catch(Exception e)
             {
                 Console.WriteLine(e);
-                label3.Text = "error";
+                label3.Text = $"error: {e.Message}";
+            }
+        }
+
+        private void close_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("cmd", "/C start" + " " + "https://github.com/quartzexpressDEV/CubeIconReverter/");
+        }
+
+        void Header_MouseUp(object sender, MouseEventArgs e)
+        {
+            drag = false;
+        }
+
+        void Header_MouseDown(object sender, MouseEventArgs e)
+        {
+            startPoint = e.Location;
+            drag = true;
+        }
+
+        void Header_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (this.drag)
+            { // if we should be dragging it, we need to figure out some movement
+                Point p1 = new Point(e.X, e.Y);
+                Point p2 = PointToScreen(p1);
+                Point p3 = new Point(p2.X - startPoint.X,
+                                     p2.Y - startPoint.Y);
+                Location = p3;
             }
         }
     }
