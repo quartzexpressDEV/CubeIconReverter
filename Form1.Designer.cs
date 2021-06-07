@@ -40,6 +40,8 @@ namespace CubeIconReverter
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.Header = new System.Windows.Forms.Panel();
+            this.cubeTitleRemove = new System.Windows.Forms.CheckBox();
+            this.healthBarYes = new System.Windows.Forms.CheckBox();
             this.Header.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,7 +61,7 @@ namespace CubeIconReverter
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(40, 375);
+            this.label3.Location = new System.Drawing.Point(50, 405);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(14, 21);
             this.label3.TabIndex = 2;
@@ -72,7 +74,7 @@ namespace CubeIconReverter
             this.start.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.start.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.start.ForeColor = System.Drawing.Color.White;
-            this.start.Location = new System.Drawing.Point(50, 300);
+            this.start.Location = new System.Drawing.Point(50, 350);
             this.start.Margin = new System.Windows.Forms.Padding(0);
             this.start.Name = "start";
             this.start.Size = new System.Drawing.Size(250, 50);
@@ -88,7 +90,7 @@ namespace CubeIconReverter
             this.clear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.clear.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.clear.ForeColor = System.Drawing.Color.White;
-            this.clear.Location = new System.Drawing.Point(400, 300);
+            this.clear.Location = new System.Drawing.Point(400, 350);
             this.clear.Margin = new System.Windows.Forms.Padding(0);
             this.clear.Name = "clear";
             this.clear.Size = new System.Drawing.Size(250, 50);
@@ -148,12 +150,36 @@ namespace CubeIconReverter
             this.Header.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Header_MouseMove);
             this.Header.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Header_MouseUp);
             // 
+            // cubeTitleRemove
+            // 
+            this.cubeTitleRemove.AutoSize = true;
+            this.cubeTitleRemove.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cubeTitleRemove.Location = new System.Drawing.Point(50, 291);
+            this.cubeTitleRemove.Name = "cubeTitleRemove";
+            this.cubeTitleRemove.Size = new System.Drawing.Size(202, 25);
+            this.cubeTitleRemove.TabIndex = 9;
+            this.cubeTitleRemove.Text = "Remove \"Cubecraft\" Title";
+            this.cubeTitleRemove.UseVisualStyleBackColor = true;
+            // 
+            // healthBarYes
+            // 
+            this.healthBarYes.AutoSize = true;
+            this.healthBarYes.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.healthBarYes.Location = new System.Drawing.Point(400, 280);
+            this.healthBarYes.Name = "healthBarYes";
+            this.healthBarYes.Size = new System.Drawing.Size(243, 46);
+            this.healthBarYes.TabIndex = 10;
+            this.healthBarYes.Text = "Health Bars instead of hears in \r\nhealth indicator\r\n";
+            this.healthBarYes.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(60)))));
             this.ClientSize = new System.Drawing.Size(700, 450);
+            this.Controls.Add(this.healthBarYes);
+            this.Controls.Add(this.cubeTitleRemove);
             this.Controls.Add(this.Header);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
@@ -190,6 +216,8 @@ namespace CubeIconReverter
         private bool drag = false;
         private Point startPoint = new Point(0, 0);
         private System.Windows.Forms.Panel Header;
+        private CheckBox cubeTitleRemove;
+        private CheckBox healthBarYes;
     }
 }
 

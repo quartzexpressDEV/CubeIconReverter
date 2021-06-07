@@ -50,15 +50,27 @@ namespace CubeIconReverter
                 ZipFile.ExtractToDirectory($"{cachepath}\\default.zip", $"{cachepath}\\anticcpack");
                 label3.Text = "pack downloaded";
                 File.Delete($"{cachepath}\\default.zip");
+                if (cubeTitleRemove.Checked)
+                {
+                    File.Delete($"{cachepath}\\anticcpack\\textures\\ui\\title.png");
+                }
+                if (healthBarYes.Checked)
+                {
+                    wc.DownloadFile($"{url}/healthbar.png", $"{cachepath}\\anticcpack\\font\\glyph_E1.png");
+                }
+                wc.Dispose();
             }
             catch (Exception e)
             {
-                File.Create($"{System.Reflection.Assembly.GetExecutingAssembly()}\\log.txt");
+                File.WriteAllText("log.txt", e.ToString());
                 if (e is IOException) { label3.Text = "Error 1"; } else {
                 if (e is UnauthorizedAccessException) { label3.Text = "Error 2"; } else {
                 if (e is WebException) { label3.Text = "Error 3"; } else {
-                if (e is FileNotFoundException) { label3.Text = "Error 4"; }}}}}
+                if (e is FileNotFoundException) { label3.Text = "Error 4"; }}}}
             }
+            cubeTitleRemove.Checked = false;
+            healthBarYes.Checked = false;
+        }
 
         private void close_Click(object sender, EventArgs e)
         {
