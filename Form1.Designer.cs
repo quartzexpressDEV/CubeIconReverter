@@ -167,9 +167,9 @@ namespace CubeIconReverter
             this.healthBarYes.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.healthBarYes.Location = new System.Drawing.Point(400, 280);
             this.healthBarYes.Name = "healthBarYes";
-            this.healthBarYes.Size = new System.Drawing.Size(243, 46);
+            this.healthBarYes.Size = new System.Drawing.Size(248, 46);
             this.healthBarYes.TabIndex = 10;
-            this.healthBarYes.Text = "Health Bars instead of hears in \r\nhealth indicator\r\n";
+            this.healthBarYes.Text = "Health Bars instead of hearts in \r\nhealth indicator\r\n";
             this.healthBarYes.UseVisualStyleBackColor = true;
             // 
             // Form1
