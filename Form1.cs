@@ -34,12 +34,12 @@ namespace CubeIconReverter
                 Directory.CreateDirectory(cachepath);
                 label3.Text = "cache cleared";
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine(e);
                 label3.Text = $"error: {e.Message}";
             }
-            
+
         }
         private void dl_pack()
         {
@@ -49,13 +49,16 @@ namespace CubeIconReverter
                 wc.DownloadFile($"{url}/default.zip", $"{cachepath}\\default.zip");
                 ZipFile.ExtractToDirectory($"{cachepath}\\default.zip", $"{cachepath}\\anticcpack");
                 label3.Text = "pack downloaded";
+                File.Delete($"{cachepath}\\default.zip");
             }
-            catch(Exception e)
+            catch (Exception e)
             {
-                Console.WriteLine(e);
-                label3.Text = $"error: {e.Message}";
+                File.Create($"{System.Reflection.Assembly.GetExecutingAssembly()}\\log.txt");
+                if (e is IOException) { label3.Text = "Error 1"; } else {
+                if (e is UnauthorizedAccessException) { label3.Text = "Error 2"; } else {
+                if (e is WebException) { label3.Text = "Error 3"; } else {
+                if (e is FileNotFoundException) { label3.Text = "Error 4"; }}}}}
             }
-        }
 
         private void close_Click(object sender, EventArgs e)
         {
