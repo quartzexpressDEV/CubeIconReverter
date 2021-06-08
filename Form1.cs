@@ -16,16 +16,46 @@ namespace CubeIconReverter
             InitializeComponent();
         }
 
+        private void appTitle_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("cmd", "/C start" + " " + "https://github.com/quartzexpressDEV/CubeIconReverter/");
+        }
+
         private void start_Click(object sender, EventArgs e)
         {
             clearcache();
             dl_pack();
         }
-
         private void clear_Click(object sender, EventArgs e)
         {
             clearcache();
         }
+
+        private void close_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+        void Header_MouseUp(object sender, MouseEventArgs e)
+        {
+            drag = false;
+        }
+        void Header_MouseDown(object sender, MouseEventArgs e)
+        {
+            startPoint = e.Location;
+            drag = true;
+        }
+        void Header_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (this.drag)
+            { // if we should be dragging it, we need to figure out some movement
+                Point p1 = new Point(e.X, e.Y);
+                Point p2 = PointToScreen(p1);
+                Point p3 = new Point(p2.X - startPoint.X,
+                                     p2.Y - startPoint.Y);
+                Location = p3;
+            }
+        }
+
         private void clearcache()
         {
             try
@@ -63,15 +93,14 @@ namespace CubeIconReverter
             catch (Exception e)
             {
                 File.WriteAllText("log.txt", e.ToString());
-                if (e is IOException) { status.Text = "Error 1"; } else {
-                if (e is UnauthorizedAccessException) { status.Text = "Error 2"; } else {
-                if (e is WebException) { status.Text = "Error 3"; } else {
-                if (e is FileNotFoundException) { status.Text = "Error 4"; }}}}
+                if (e is IOException) { status.Text = "Error Code: 1"; }
+                if (e is UnauthorizedAccessException) { status.Text = "Error Code: 2"; }
+                if (e is WebException) { status.Text = "Error Code: 3"; }
+                if (e is FileNotFoundException) { status.Text = "Error Code: 4"; }
             }
             removecubeTitle.Checked = false;
             customHealthBar.Checked = false;
         }
-
         private void close_Click(object sender, EventArgs e)
         {
             Close();
@@ -104,5 +133,6 @@ namespace CubeIconReverter
                 Location = p3;
             }
         }
+
     }
 }
