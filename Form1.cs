@@ -16,7 +16,7 @@ namespace CubeIconReverter
             InitializeComponent();
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void appTitle_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("cmd", "/C start" + " " + "https://github.com/quartzexpressDEV/CubeIconReverter/");
         }
@@ -80,11 +80,11 @@ namespace CubeIconReverter
                 ZipFile.ExtractToDirectory($"{cachepath}\\default.zip", $"{cachepath}\\anticcpack");
                 status.Text = "pack downloaded";
                 File.Delete($"{cachepath}\\default.zip");
-                if (cubeTitleRemove.Checked)
+                if (removecubeTitle.Checked)
                 {
                     File.Delete($"{cachepath}\\anticcpack\\textures\\ui\\title.png");
                 }
-                if (healthBarYes.Checked)
+                if (customHealthBar.Checked)
                 {
                     wc.DownloadFile($"{url}/healthbar.png", $"{cachepath}\\anticcpack\\font\\glyph_E1.png");
                 }
@@ -98,10 +98,9 @@ namespace CubeIconReverter
                 if (e is WebException) { status.Text = "Error Code: 3"; }
                 if (e is FileNotFoundException) { status.Text = "Error Code: 4"; }
             }
-            cubeTitleRemove.Checked = false;
-            healthBarYes.Checked = false;
+            removecubeTitle.Checked = false;
+            customHealthBar.Checked = false;
         }
-
 
     }
 }
