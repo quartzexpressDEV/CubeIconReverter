@@ -32,20 +32,22 @@ namespace CubeIconReverter
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.disclaimer = new System.Windows.Forms.Label();
+            this.status = new System.Windows.Forms.Label();
             this.start = new System.Windows.Forms.Button();
             this.clear = new System.Windows.Forms.Button();
             this.close = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.apptitle = new System.Windows.Forms.Label();
+            this.credits = new System.Windows.Forms.Label();
             this.Header = new System.Windows.Forms.Panel();
-            this.cubeTitleRemove = new System.Windows.Forms.CheckBox();
-            this.healthBarYes = new System.Windows.Forms.CheckBox();
+            this.removeCCTitle_label = new System.Windows.Forms.Label();
+            this.removecubeTitle = new CubeIconReverter.Toggle();
+            this.customHealthBar = new CubeIconReverter.Toggle();
+            this.customHealthBar_label = new System.Windows.Forms.Label();
             this.Header.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label1
+            // disclaimer
             // 
             this.disclaimer.AutoSize = true;
             this.disclaimer.Font = new System.Drawing.Font("Segoe UI", 12F);
@@ -56,7 +58,7 @@ namespace CubeIconReverter
             this.disclaimer.Text = "• By clicking START, the server rp cache will be cleared so use this at ur own ri" +
     "sk \r\n• By clicking CLEAR, the server rp cache will also be cleared";
             // 
-            // label3
+            // status
             // 
             this.status.AutoSize = true;
             this.status.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
@@ -73,23 +75,23 @@ namespace CubeIconReverter
             this.start.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.start.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
             this.start.ForeColor = System.Drawing.Color.White;
-            this.start.Location = new System.Drawing.Point(44, 380);
+            this.start.Location = new System.Drawing.Point(50, 380);
             this.start.Margin = new System.Windows.Forms.Padding(0);
             this.start.Name = "start";
             this.start.Size = new System.Drawing.Size(250, 50);
             this.start.TabIndex = 3;
             this.start.Text = "START";
-            this.start.UseVisualStyleBackColor = true;
+            this.start.UseVisualStyleBackColor = false;
             this.start.Click += new System.EventHandler(this.start_Click);
             // 
             // clear
             // 
-            this.clear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(30)))), ((int)(((byte)(50)))));
+            this.clear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(10)))), ((int)(((byte)(0)))));
             this.clear.FlatAppearance.BorderSize = 0;
             this.clear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.clear.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
             this.clear.ForeColor = System.Drawing.Color.White;
-            this.clear.Location = new System.Drawing.Point(506, 380);
+            this.clear.Location = new System.Drawing.Point(500, 380);
             this.clear.Margin = new System.Windows.Forms.Padding(0);
             this.clear.Name = "clear";
             this.clear.Size = new System.Drawing.Size(250, 50);
@@ -100,20 +102,21 @@ namespace CubeIconReverter
             // 
             // close
             // 
-            this.close.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(60)))));
-            this.close.Dock = System.Windows.Forms.DockStyle.Right;
+            this.close.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(35)))), ((int)(((byte)(55)))));
+            this.close.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(35)))), ((int)(((byte)(55)))));
+            this.close.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(30)))), ((int)(((byte)(50)))));
             this.close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.close.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
             this.close.Location = new System.Drawing.Point(759, 1);
             this.close.Margin = new System.Windows.Forms.Padding(0);
             this.close.Name = "close";
-            this.close.Size = new System.Drawing.Size(40, 40);
+            this.close.Size = new System.Drawing.Size(38, 38);
             this.close.TabIndex = 5;
             this.close.Text = "X";
             this.close.UseVisualStyleBackColor = false;
             this.close.Click += new System.EventHandler(this.close_Click);
             // 
-            // label2
+            // apptitle
             // 
             this.apptitle.AutoSize = true;
             this.apptitle.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -125,7 +128,7 @@ namespace CubeIconReverter
             this.apptitle.Text = "CubeIconReverter";
             this.apptitle.Click += new System.EventHandler(this.appTitle_Click);
             // 
-            // label4
+            // credits
             // 
             this.credits.AutoSize = true;
             this.credits.Font = new System.Drawing.Font("Segoe UI", 12F);
@@ -143,7 +146,7 @@ namespace CubeIconReverter
             this.Header.Location = new System.Drawing.Point(0, 0);
             this.Header.Margin = new System.Windows.Forms.Padding(0);
             this.Header.Name = "Header";
-            this.Header.Size = new System.Drawing.Size(700, 40);
+            this.Header.Size = new System.Drawing.Size(800, 40);
             this.Header.TabIndex = 8;
             this.Header.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Header_MouseDown);
             this.Header.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Header_MouseMove);
@@ -176,37 +179,40 @@ namespace CubeIconReverter
             // 
             // customHealthBar
             // 
-            this.cubeTitleRemove.AutoSize = true;
-            this.cubeTitleRemove.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.cubeTitleRemove.Location = new System.Drawing.Point(50, 291);
-            this.cubeTitleRemove.Name = "cubeTitleRemove";
-            this.cubeTitleRemove.Size = new System.Drawing.Size(202, 25);
-            this.cubeTitleRemove.TabIndex = 9;
-            this.cubeTitleRemove.Text = "Remove \"Cubecraft\" Title";
-            this.cubeTitleRemove.UseVisualStyleBackColor = true;
+            this.customHealthBar.AutoSize = true;
+            this.customHealthBar.Location = new System.Drawing.Point(206, 298);
+            this.customHealthBar.MinimumSize = new System.Drawing.Size(45, 22);
+            this.customHealthBar.Name = "customHealthBar";
+            this.customHealthBar.OffBackColor = System.Drawing.Color.Gray;
+            this.customHealthBar.OffToggleColor = System.Drawing.Color.Gainsboro;
+            this.customHealthBar.OnBackColor = System.Drawing.Color.MediumTurquoise;
+            this.customHealthBar.OnToggleColor = System.Drawing.Color.WhiteSmoke;
+            this.customHealthBar.Size = new System.Drawing.Size(45, 22);
+            this.customHealthBar.TabIndex = 11;
+            this.customHealthBar.UseVisualStyleBackColor = true;
             // 
-            // healthBarYes
+            // customHealthBar_label
             // 
-            this.healthBarYes.AutoSize = true;
-            this.healthBarYes.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.healthBarYes.Location = new System.Drawing.Point(400, 280);
-            this.healthBarYes.Name = "healthBarYes";
-            this.healthBarYes.Size = new System.Drawing.Size(248, 46);
-            this.healthBarYes.TabIndex = 10;
-            this.healthBarYes.Text = "Health Bars instead of hearts in \r\nhealth indicator\r\n";
-            this.healthBarYes.UseVisualStyleBackColor = true;
+            this.customHealthBar_label.AutoSize = true;
+            this.customHealthBar_label.Location = new System.Drawing.Point(40, 300);
+            this.customHealthBar_label.Name = "customHealthBar_label";
+            this.customHealthBar_label.Size = new System.Drawing.Size(125, 19);
+            this.customHealthBar_label.TabIndex = 12;
+            this.customHealthBar_label.Text = "Custom Health Bar";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(60)))));
-            this.ClientSize = new System.Drawing.Size(700, 450);
-            this.Controls.Add(this.healthBarYes);
-            this.Controls.Add(this.cubeTitleRemove);
+            this.ClientSize = new System.Drawing.Size(800, 500);
+            this.Controls.Add(this.customHealthBar_label);
+            this.Controls.Add(this.customHealthBar);
+            this.Controls.Add(this.removecubeTitle);
+            this.Controls.Add(this.removeCCTitle_label);
             this.Controls.Add(this.Header);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.credits);
+            this.Controls.Add(this.apptitle);
             this.Controls.Add(this.clear);
             this.Controls.Add(this.start);
             this.Controls.Add(this.status);
@@ -215,8 +221,8 @@ namespace CubeIconReverter
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(700, 450);
-            this.MinimumSize = new System.Drawing.Size(700, 450);
+            this.MaximumSize = new System.Drawing.Size(800, 500);
+            this.MinimumSize = new System.Drawing.Size(800, 500);
             this.Name = "Form1";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -229,19 +235,21 @@ namespace CubeIconReverter
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label disclaimer;
+        private System.Windows.Forms.Label status;
         private System.Windows.Forms.Button start;
         private System.Windows.Forms.Button clear;
         private System.Windows.Forms.Button close;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label4;
-        
+        private System.Windows.Forms.Label apptitle;
+        private System.Windows.Forms.Label credits;
+
         private bool drag = false;
         private Point startPoint = new Point(0, 0);
         private System.Windows.Forms.Panel Header;
-        private CheckBox cubeTitleRemove;
-        private CheckBox healthBarYes;
+        private Label removeCCTitle_label;
+        private Toggle removecubeTitle;
+        private Toggle customHealthBar;
+        private Label customHealthBar_label;
     }
 }
 

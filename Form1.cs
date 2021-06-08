@@ -32,12 +32,12 @@ namespace CubeIconReverter
             {
                 Directory.Delete(cachepath, true);
                 Directory.CreateDirectory(cachepath);
-                label3.Text = "cache cleared";
+                status.Text = "cache cleared";
             }
             catch (Exception e)
             {
                 Console.WriteLine(e);
-                label3.Text = $"error: {e.Message}";
+                status.Text = $"error: {e.Message}";
             }
 
         }
@@ -48,13 +48,13 @@ namespace CubeIconReverter
                 WebClient wc = new WebClient();
                 wc.DownloadFile($"{url}/default.zip", $"{cachepath}\\default.zip");
                 ZipFile.ExtractToDirectory($"{cachepath}\\default.zip", $"{cachepath}\\anticcpack");
-                label3.Text = "pack downloaded";
+                status.Text = "pack downloaded";
                 File.Delete($"{cachepath}\\default.zip");
-                if (cubeTitleRemove.Checked)
+                if (removecubeTitle.Checked)
                 {
                     File.Delete($"{cachepath}\\anticcpack\\textures\\ui\\title.png");
                 }
-                if (healthBarYes.Checked)
+                if (customHealthBar.Checked)
                 {
                     wc.DownloadFile($"{url}/healthbar.png", $"{cachepath}\\anticcpack\\font\\glyph_E1.png");
                 }
@@ -63,13 +63,13 @@ namespace CubeIconReverter
             catch (Exception e)
             {
                 File.WriteAllText("log.txt", e.ToString());
-                if (e is IOException) { label3.Text = "Error 1"; } else {
-                if (e is UnauthorizedAccessException) { label3.Text = "Error 2"; } else {
-                if (e is WebException) { label3.Text = "Error 3"; } else {
-                if (e is FileNotFoundException) { label3.Text = "Error 4"; }}}}
+                if (e is IOException) { status.Text = "Error 1"; } else {
+                if (e is UnauthorizedAccessException) { status.Text = "Error 2"; } else {
+                if (e is WebException) { status.Text = "Error 3"; } else {
+                if (e is FileNotFoundException) { status.Text = "Error 4"; }}}}
             }
-            cubeTitleRemove.Checked = false;
-            healthBarYes.Checked = false;
+            removecubeTitle.Checked = false;
+            customHealthBar.Checked = false;
         }
 
         private void close_Click(object sender, EventArgs e)
@@ -77,7 +77,7 @@ namespace CubeIconReverter
             Close();
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void appTitle_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("cmd", "/C start" + " " + "https://github.com/quartzexpressDEV/CubeIconReverter/");
         }
