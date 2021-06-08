@@ -32,40 +32,40 @@ namespace CubeIconReverter
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.disclaimer = new System.Windows.Forms.Label();
+            this.status = new System.Windows.Forms.Label();
             this.start = new System.Windows.Forms.Button();
             this.clear = new System.Windows.Forms.Button();
             this.close = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.apptitle = new System.Windows.Forms.Label();
+            this.credits = new System.Windows.Forms.Label();
             this.Header = new System.Windows.Forms.Panel();
             this.cubeTitleRemove = new System.Windows.Forms.CheckBox();
             this.healthBarYes = new System.Windows.Forms.CheckBox();
             this.Header.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label1
+            // disclaimer
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(40, 203);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(562, 42);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "• By clicking START, the server rp cache will be cleared so use this at ur own ri" +
+            this.disclaimer.AutoSize = true;
+            this.disclaimer.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.disclaimer.Location = new System.Drawing.Point(40, 203);
+            this.disclaimer.Name = "disclaimer";
+            this.disclaimer.Size = new System.Drawing.Size(562, 42);
+            this.disclaimer.TabIndex = 0;
+            this.disclaimer.Text = "• By clicking START, the server rp cache will be cleared so use this at ur own ri" +
     "sk \r\n• By clicking CLEAR, the server rp cache will also be cleared";
             // 
-            // label3
+            // status
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(50, 405);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(14, 21);
-            this.label3.TabIndex = 2;
-            this.label3.Text = " ";
+            this.status.AutoSize = true;
+            this.status.Font = new System.Drawing.Font("Segoe UI", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.status.ForeColor = System.Drawing.Color.White;
+            this.status.Location = new System.Drawing.Point(40, 411);
+            this.status.Name = "status";
+            this.status.Size = new System.Drawing.Size(14, 21);
+            this.status.TabIndex = 2;
+            this.status.Text = " ";
             // 
             // start
             // 
@@ -114,27 +114,27 @@ namespace CubeIconReverter
             this.close.UseVisualStyleBackColor = false;
             this.close.Click += new System.EventHandler(this.close_Click);
             // 
-            // label2
+            // apptitle
             // 
-            this.label2.AutoSize = true;
-            this.label2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label2.Font = new System.Drawing.Font("Comic Sans MS", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(40, 81);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(369, 55);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "CubeIconReverter";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+            this.apptitle.AutoSize = true;
+            this.apptitle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.apptitle.Font = new System.Drawing.Font("Comic Sans MS", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.apptitle.Location = new System.Drawing.Point(40, 81);
+            this.apptitle.Name = "apptitle";
+            this.apptitle.Size = new System.Drawing.Size(369, 55);
+            this.apptitle.TabIndex = 6;
+            this.apptitle.Text = "CubeIconReverter";
+            this.apptitle.Click += new System.EventHandler(this.label2_Click);
             // 
-            // label4
+            // credits
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(374, 136);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(75, 21);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "By quartz";
+            this.credits.AutoSize = true;
+            this.credits.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.credits.Location = new System.Drawing.Point(374, 136);
+            this.credits.Name = "credits";
+            this.credits.Size = new System.Drawing.Size(75, 21);
+            this.credits.TabIndex = 7;
+            this.credits.Text = "By quartz";
             // 
             // Header
             // 
@@ -181,12 +181,12 @@ namespace CubeIconReverter
             this.Controls.Add(this.healthBarYes);
             this.Controls.Add(this.cubeTitleRemove);
             this.Controls.Add(this.Header);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.credits);
+            this.Controls.Add(this.apptitle);
             this.Controls.Add(this.clear);
             this.Controls.Add(this.start);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.status);
+            this.Controls.Add(this.disclaimer);
             this.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -205,13 +205,13 @@ namespace CubeIconReverter
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label disclaimer;
+        private System.Windows.Forms.Label status;
         private System.Windows.Forms.Button start;
         private System.Windows.Forms.Button clear;
         private System.Windows.Forms.Button close;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label apptitle;
+        private System.Windows.Forms.Label credits;
         
         private bool drag = false;
         private Point startPoint = new Point(0, 0);

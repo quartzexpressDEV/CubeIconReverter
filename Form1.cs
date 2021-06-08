@@ -16,28 +16,58 @@ namespace CubeIconReverter
             InitializeComponent();
         }
 
+        private void label2_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("cmd", "/C start" + " " + "https://github.com/quartzexpressDEV/CubeIconReverter/");
+        }
+
         private void start_Click(object sender, EventArgs e)
         {
             clearcache();
             dl_pack();
         }
-
         private void clear_Click(object sender, EventArgs e)
         {
             clearcache();
         }
+
+        private void close_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+        void Header_MouseUp(object sender, MouseEventArgs e)
+        {
+            drag = false;
+        }
+        void Header_MouseDown(object sender, MouseEventArgs e)
+        {
+            startPoint = e.Location;
+            drag = true;
+        }
+        void Header_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (this.drag)
+            { // if we should be dragging it, we need to figure out some movement
+                Point p1 = new Point(e.X, e.Y);
+                Point p2 = PointToScreen(p1);
+                Point p3 = new Point(p2.X - startPoint.X,
+                                     p2.Y - startPoint.Y);
+                Location = p3;
+            }
+        }
+
         private void clearcache()
         {
             try
             {
                 Directory.Delete(cachepath, true);
                 Directory.CreateDirectory(cachepath);
-                label3.Text = "cache cleared";
+                status.Text = "cache cleared";
             }
             catch (Exception e)
             {
                 Console.WriteLine(e);
-                label3.Text = $"error: {e.Message}";
+                status.Text = $"error: {e.Message}";
             }
 
         }
@@ -48,7 +78,7 @@ namespace CubeIconReverter
                 WebClient wc = new WebClient();
                 wc.DownloadFile($"{url}/default.zip", $"{cachepath}\\default.zip");
                 ZipFile.ExtractToDirectory($"{cachepath}\\default.zip", $"{cachepath}\\anticcpack");
-                label3.Text = "pack downloaded";
+                status.Text = "pack downloaded";
                 File.Delete($"{cachepath}\\default.zip");
                 if (cubeTitleRemove.Checked)
                 {
@@ -63,46 +93,15 @@ namespace CubeIconReverter
             catch (Exception e)
             {
                 File.WriteAllText("log.txt", e.ToString());
-                if (e is IOException) { label3.Text = "Error 1"; } else {
-                if (e is UnauthorizedAccessException) { label3.Text = "Error 2"; } else {
-                if (e is WebException) { label3.Text = "Error 3"; } else {
-                if (e is FileNotFoundException) { label3.Text = "Error 4"; }}}}
+                if (e is IOException) { status.Text = "Error Code: 1"; }
+                if (e is UnauthorizedAccessException) { status.Text = "Error Code: 2"; }
+                if (e is WebException) { status.Text = "Error Code: 3"; }
+                if (e is FileNotFoundException) { status.Text = "Error Code: 4"; }
             }
             cubeTitleRemove.Checked = false;
             healthBarYes.Checked = false;
         }
 
-        private void close_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-            System.Diagnostics.Process.Start("cmd", "/C start" + " " + "https://github.com/quartzexpressDEV/CubeIconReverter/");
-        }
-
-        void Header_MouseUp(object sender, MouseEventArgs e)
-        {
-            drag = false;
-        }
-
-        void Header_MouseDown(object sender, MouseEventArgs e)
-        {
-            startPoint = e.Location;
-            drag = true;
-        }
-
-        void Header_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (this.drag)
-            { // if we should be dragging it, we need to figure out some movement
-                Point p1 = new Point(e.X, e.Y);
-                Point p2 = PointToScreen(p1);
-                Point p3 = new Point(p2.X - startPoint.X,
-                                     p2.Y - startPoint.Y);
-                Location = p3;
-            }
-        }
     }
 }
