@@ -101,6 +101,38 @@ namespace CubeIconReverter
             removecubeTitle.Checked = false;
             customHealthBar.Checked = false;
         }
+        private void close_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void appTitle_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("cmd", "/C start" + " " + "https://github.com/quartzexpressDEV/CubeIconReverter/");
+        }
+
+        void Header_MouseUp(object sender, MouseEventArgs e)
+        {
+            drag = false;
+        }
+
+        void Header_MouseDown(object sender, MouseEventArgs e)
+        {
+            startPoint = e.Location;
+            drag = true;
+        }
+
+        void Header_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (this.drag)
+            { // if we should be dragging it, we need to figure out some movement
+                Point p1 = new Point(e.X, e.Y);
+                Point p2 = PointToScreen(p1);
+                Point p3 = new Point(p2.X - startPoint.X,
+                                     p2.Y - startPoint.Y);
+                Location = p3;
+            }
+        }
 
     }
 }

@@ -73,7 +73,7 @@ namespace CubeIconReverter
             this.start.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(238)))), ((int)(((byte)(153)))));
             this.start.FlatAppearance.BorderSize = 0;
             this.start.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.start.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.start.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
             this.start.ForeColor = System.Drawing.Color.White;
             this.start.Location = new System.Drawing.Point(50, 380);
             this.start.Margin = new System.Windows.Forms.Padding(0);
@@ -89,7 +89,7 @@ namespace CubeIconReverter
             this.clear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(10)))), ((int)(((byte)(0)))));
             this.clear.FlatAppearance.BorderSize = 0;
             this.clear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.clear.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.clear.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
             this.clear.ForeColor = System.Drawing.Color.White;
             this.clear.Location = new System.Drawing.Point(500, 380);
             this.clear.Margin = new System.Windows.Forms.Padding(0);
@@ -242,7 +242,6 @@ namespace CubeIconReverter
         private System.Windows.Forms.Button close;
         private System.Windows.Forms.Label apptitle;
         private System.Windows.Forms.Label credits;
-        
         private bool drag = false;
         private Point startPoint = new Point(0, 0);
         private System.Windows.Forms.Panel Header;
