@@ -50,18 +50,19 @@ namespace CubeIconReverter
             // disclaimer
             // 
             this.disclaimer.AutoSize = true;
-            this.disclaimer.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.disclaimer.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.disclaimer.Location = new System.Drawing.Point(40, 178);
             this.disclaimer.Name = "disclaimer";
-            this.disclaimer.Size = new System.Drawing.Size(562, 42);
+            this.disclaimer.Size = new System.Drawing.Size(650, 42);
             this.disclaimer.TabIndex = 0;
-            this.disclaimer.Text = "• By clicking START, the server rp cache will be cleared so use this at ur own ri" +
-    "sk \r\n• By clicking CLEAR, the server rp cache will also be cleared";
+            this.disclaimer.Text = "• By clicking START, the normal rp will be replaced by the modified one\r\n• By cli" +
+    "cking CLEAR, the server rp cache will be cleared, effectively deleting the modif" +
+    "ied pack\r\n";
             // 
             // status
             // 
             this.status.AutoSize = true;
-            this.status.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.status.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.status.ForeColor = System.Drawing.Color.White;
             this.status.Location = new System.Drawing.Point(40, 446);
             this.status.Name = "status";
@@ -106,7 +107,7 @@ namespace CubeIconReverter
             this.close.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(35)))), ((int)(((byte)(55)))));
             this.close.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(30)))), ((int)(((byte)(50)))));
             this.close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.close.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.close.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
             this.close.Location = new System.Drawing.Point(759, 1);
             this.close.Margin = new System.Windows.Forms.Padding(0);
             this.close.Name = "close";
@@ -120,7 +121,7 @@ namespace CubeIconReverter
             // 
             this.apptitle.AutoSize = true;
             this.apptitle.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.apptitle.Font = new System.Drawing.Font("Comic Sans MS", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.apptitle.Font = new System.Drawing.Font("Comic Sans MS", 30F, System.Drawing.FontStyle.Bold);
             this.apptitle.Location = new System.Drawing.Point(185, 70);
             this.apptitle.Name = "apptitle";
             this.apptitle.Size = new System.Drawing.Size(369, 55);
@@ -131,7 +132,7 @@ namespace CubeIconReverter
             // credits
             // 
             this.credits.AutoSize = true;
-            this.credits.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.credits.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.credits.Location = new System.Drawing.Point(520, 125);
             this.credits.Name = "credits";
             this.credits.Size = new System.Drawing.Size(75, 21);
@@ -155,7 +156,7 @@ namespace CubeIconReverter
             // removeCCTitle_label
             // 
             this.removeCCTitle_label.AutoSize = true;
-            this.removeCCTitle_label.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.removeCCTitle_label.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.removeCCTitle_label.Location = new System.Drawing.Point(40, 263);
             this.removeCCTitle_label.Name = "removeCCTitle_label";
             this.removeCCTitle_label.Size = new System.Drawing.Size(160, 19);
@@ -217,7 +218,7 @@ namespace CubeIconReverter
             this.Controls.Add(this.start);
             this.Controls.Add(this.status);
             this.Controls.Add(this.disclaimer);
-            this.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
