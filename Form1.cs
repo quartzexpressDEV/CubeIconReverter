@@ -59,7 +59,7 @@ namespace CubeIconReverter
                 }
                 if (customHealthBar.Checked)
                 {
-                    File.Delete($"{cachepath}\\anticcpack\\font\\glyph_E1.png")
+                    File.Delete($"{cachepath}\\anticcpack\\font\\glyph_E1.png");
                     File.Move($"{cachepath}\\anticcpack\\_modules\\health_bar\\glyph_E1.png", $"{cachepath}\\anticcpack\\font\\glyph_E1.png");
                 }
                 wc.Dispose();
