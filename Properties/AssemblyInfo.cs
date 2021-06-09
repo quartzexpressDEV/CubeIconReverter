@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("quartzexpress, BoredSathvik")]
 [assembly: AssemblyProduct("CubeIconReverter")]
-[assembly: AssemblyCopyright("")]
+[assembly: AssemblyCopyright("Copyright ©️ 2021 Quartz & Sathvik")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
