@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // Attribute gesteuert. Ändern Sie diese Attributwerte, um die Informationen zu ändern,
 // die einer Assembly zugeordnet sind.
 [assembly: AssemblyTitle("CubeIconReverter")]
-[assembly: AssemblyDescription("An tool to remove the new item icons in cubecraft")]
+[assembly: AssemblyDescription("A tool to remove the new item icons in cubecraft")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("QuartzExpressDev™")]
-[assembly: AssemblyProduct("cubeiconrevertertemp")]
-[assembly: AssemblyCopyright("Copyright ©  2021 QuartzExpressDev")]
+[assembly: AssemblyCompany("quartzexpress"")]
+[assembly: AssemblyProduct("CubeIconReverter")]
+[assembly: AssemblyCopyright("")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
