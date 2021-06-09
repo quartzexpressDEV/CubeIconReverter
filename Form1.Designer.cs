@@ -236,16 +236,16 @@ namespace CubeIconReverter
 
         #endregion
 
-        private System.Windows.Forms.Label disclaimer;
-        private System.Windows.Forms.Label status;
-        private System.Windows.Forms.Button start;
-        private System.Windows.Forms.Button clear;
-        private System.Windows.Forms.Button close;
-        private System.Windows.Forms.Label apptitle;
-        private System.Windows.Forms.Label credits;
+        private Label disclaimer;
+        private Label status;
+        private Button start;
+        private Button clear;
+        private Button close;
+        private Label apptitle;
+        private Label credits;
         private bool drag = false;
         private Point startPoint = new Point(0, 0);
-        private System.Windows.Forms.Panel Header;
+        private Panel Header;
         private Label removeCCTitle_label;
         private Toggle removecubeTitle;
         private Toggle customHealthBar;
