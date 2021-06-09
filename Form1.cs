@@ -50,7 +50,8 @@ namespace CubeIconReverter
             {
                 WebClient wc = new WebClient();
                 wc.DownloadFile(url, $"{cachepath}\\default.zip");
-                ZipFile.ExtractToDirectory($"{cachepath}\\default.zip", $"{cachepath}\\anticcpack");
+                ZipFile.ExtractToDirectory($"{cachepath}\\default.zip", $"{cachepath}");
+                Directory.Move($"{cachepath}\\anticcpack-main", $"{cachepath}\\anticcpack");
                 status.Text = "pack downloaded";
                 File.Delete($"{cachepath}\\default.zip");
                 if (removecubeTitle.Checked)
