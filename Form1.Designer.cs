@@ -180,12 +180,19 @@ namespace CubeIconReverter
             // 
             // modulesBox
             // 
+            this.modulesBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(30)))), ((int)(((byte)(50)))));
+            this.modulesBox.DropDownHeight = 100;
             this.modulesBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.modulesBox.Enabled = false;
+            this.modulesBox.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.modulesBox.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.modulesBox.ForeColor = System.Drawing.Color.White;
             this.modulesBox.FormattingEnabled = true;
-            this.modulesBox.Location = new System.Drawing.Point(500, 260);
+            this.modulesBox.IntegralHeight = false;
+            this.modulesBox.Location = new System.Drawing.Point(280, 295);
+            this.modulesBox.Margin = new System.Windows.Forms.Padding(0);
             this.modulesBox.Name = "modulesBox";
-            this.modulesBox.Size = new System.Drawing.Size(250, 25);
+            this.modulesBox.Size = new System.Drawing.Size(250, 28);
             this.modulesBox.TabIndex = 13;
             this.modulesBox.SelectedIndexChanged += new System.EventHandler(this.modulesBox_SelectedIndexChanged);
             // 

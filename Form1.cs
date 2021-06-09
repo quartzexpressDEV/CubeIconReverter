@@ -83,17 +83,21 @@ namespace CubeIconReverter
         private void Form1_Load(object sender, EventArgs e)
         {
             Modules.Get().ForEach((name) => modulesBox.Items.Add(name));
+            modulesBox.Hide();
         }
         private void customHealthBar_CheckedChanged(object sender, EventArgs e)
         {
             if (customHealthBar.Checked)
             {
+                modulesBox.Show();
                 modulesBox.Enabled = true;
                 start.Enabled = false;
             }
             else
             {
+                modulesBox.Hide();
                 modulesBox.Enabled = false;
+                start.Enabled = true;
             }
         }
         private void modulesBox_SelectedIndexChanged(object sender, EventArgs e)
