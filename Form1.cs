@@ -84,7 +84,7 @@ namespace CubeIconReverter
 
         private void appTitle_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("cmd", "/C start" + " " + "https://github.com/quartzexpressDEV/CubeIconReverter/");
+            System.Diagnostics.Process.Start("https://github.com/quartzexpressDEV/CubeIconReverter/");
         }
 
         void Header_MouseUp(object sender, MouseEventArgs e)

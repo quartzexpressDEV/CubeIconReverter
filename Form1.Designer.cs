@@ -37,13 +37,13 @@ namespace CubeIconReverter
             this.start = new System.Windows.Forms.Button();
             this.clear = new System.Windows.Forms.Button();
             this.close = new System.Windows.Forms.Button();
-            this.apptitle = new System.Windows.Forms.Label();
+            this.apptitle = new System.Windows.Forms.LinkLabel();
             this.credits = new System.Windows.Forms.Label();
             this.Header = new System.Windows.Forms.Panel();
             this.removeCCTitle_label = new System.Windows.Forms.Label();
-            this.removecubeTitle = new CubeIconReverter.Toggle();
-            this.customHealthBar = new CubeIconReverter.Toggle();
             this.customHealthBar_label = new System.Windows.Forms.Label();
+            this.customHealthBar = new CubeIconReverter.Toggle();
+            this.removecubeTitle = new CubeIconReverter.Toggle();
             this.Header.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -119,14 +119,19 @@ namespace CubeIconReverter
             // 
             // apptitle
             // 
+            this.apptitle.ActiveLinkColor = System.Drawing.SystemColors.Highlight;
             this.apptitle.AutoSize = true;
             this.apptitle.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.apptitle.Font = new System.Drawing.Font("Comic Sans MS", 30F, System.Drawing.FontStyle.Bold);
+            this.apptitle.Font = new System.Drawing.Font("Comic Sans MS", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.apptitle.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.apptitle.LinkColor = System.Drawing.Color.Transparent;
             this.apptitle.Location = new System.Drawing.Point(185, 70);
             this.apptitle.Name = "apptitle";
             this.apptitle.Size = new System.Drawing.Size(369, 55);
             this.apptitle.TabIndex = 6;
+            this.apptitle.TabStop = true;
             this.apptitle.Text = "CubeIconReverter";
+            this.apptitle.VisitedLinkColor = System.Drawing.Color.Transparent;
             this.apptitle.Click += new System.EventHandler(this.appTitle_Click);
             // 
             // credits
@@ -163,20 +168,14 @@ namespace CubeIconReverter
             this.removeCCTitle_label.TabIndex = 9;
             this.removeCCTitle_label.Text = "Remove \"Cubecraft\" Title";
             // 
-            // removecubeTitle
+            // customHealthBar_label
             // 
-            this.removecubeTitle.AutoSize = true;
-            this.removecubeTitle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.removecubeTitle.Location = new System.Drawing.Point(206, 260);
-            this.removecubeTitle.MinimumSize = new System.Drawing.Size(45, 22);
-            this.removecubeTitle.Name = "removecubeTitle";
-            this.removecubeTitle.OffBackColor = System.Drawing.Color.Gray;
-            this.removecubeTitle.OffToggleColor = System.Drawing.Color.Gainsboro;
-            this.removecubeTitle.OnBackColor = System.Drawing.Color.MediumTurquoise;
-            this.removecubeTitle.OnToggleColor = System.Drawing.Color.WhiteSmoke;
-            this.removecubeTitle.Size = new System.Drawing.Size(45, 22);
-            this.removecubeTitle.TabIndex = 10;
-            this.removecubeTitle.UseVisualStyleBackColor = true;
+            this.customHealthBar_label.AutoSize = true;
+            this.customHealthBar_label.Location = new System.Drawing.Point(40, 300);
+            this.customHealthBar_label.Name = "customHealthBar_label";
+            this.customHealthBar_label.Size = new System.Drawing.Size(125, 19);
+            this.customHealthBar_label.TabIndex = 12;
+            this.customHealthBar_label.Text = "Custom Health Bar";
             // 
             // customHealthBar
             // 
@@ -192,14 +191,20 @@ namespace CubeIconReverter
             this.customHealthBar.TabIndex = 11;
             this.customHealthBar.UseVisualStyleBackColor = true;
             // 
-            // customHealthBar_label
+            // removecubeTitle
             // 
-            this.customHealthBar_label.AutoSize = true;
-            this.customHealthBar_label.Location = new System.Drawing.Point(40, 300);
-            this.customHealthBar_label.Name = "customHealthBar_label";
-            this.customHealthBar_label.Size = new System.Drawing.Size(125, 19);
-            this.customHealthBar_label.TabIndex = 12;
-            this.customHealthBar_label.Text = "Custom Health Bar";
+            this.removecubeTitle.AutoSize = true;
+            this.removecubeTitle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.removecubeTitle.Location = new System.Drawing.Point(206, 260);
+            this.removecubeTitle.MinimumSize = new System.Drawing.Size(45, 22);
+            this.removecubeTitle.Name = "removecubeTitle";
+            this.removecubeTitle.OffBackColor = System.Drawing.Color.Gray;
+            this.removecubeTitle.OffToggleColor = System.Drawing.Color.Gainsboro;
+            this.removecubeTitle.OnBackColor = System.Drawing.Color.MediumTurquoise;
+            this.removecubeTitle.OnToggleColor = System.Drawing.Color.WhiteSmoke;
+            this.removecubeTitle.Size = new System.Drawing.Size(45, 22);
+            this.removecubeTitle.TabIndex = 10;
+            this.removecubeTitle.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -241,7 +246,7 @@ namespace CubeIconReverter
         private Button start;
         private Button clear;
         private Button close;
-        private Label apptitle;
+        private LinkLabel apptitle;
         private Label credits;
         private bool drag = false;
         private Point startPoint = new Point(0, 0);
