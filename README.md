@@ -1,8 +1,33 @@
 # CubeIconReverter
-something to revert the ugly new icons on cube
-if it doesnt work for u create a new issue, if you want to improve it, create a pr
-i care way too less about this to make it look good so ill review the prs asap
-downloads can be found in the releases section but you can also just compile it urself, have fun
-if it doesnt run you probably have to install the dotnet 5.0 runtime which can be found here: https://dotnet.microsoft.com/download/dotnet-framework/net472 but ive never tested it so hmu if it doesnt work
 
-ah i forgot something, the pack is owned by cube, not me so dont sue me thx
+[![DownLoads](https://img.shields.io/github/downloads/quartzexpressDEV/CubeIconReverter/total.svg)]()
+[![GitHub stars](https://img.shields.io/github/stars/quartzexpressDEV/CubeIconReverter.svg)]()
+
+### something to revert the ugly new Icons in CubeCraft
+
+![Image](./assets/app_image.png)<br>
+
+## Usage
+
+- Toggle the options you what you want<br><br>
+  ![Image](./assets/options.png)<br><br><br>
+
+- Press to start downloading the pack<br><br>
+  ![Image](./assets/start_button.png)<br><br><br>
+
+- Press clear to reset the pack so it will use the default CubeCraft pack<br><br>
+  ![Image](./assets/clear_button.png)<br><br>
+
+## Disclaimer
+
+- we use an edited version of the cubecraft texture pack in this app. <br>
+  if you get sued don't blame us :P<br>
+  Also don't sue us, Thank you.<br><br>
+
+## Issues
+
+- If you have any issues with the App open an new issue<br><br>
+
+## Contributation
+
+- If you want to improve it or fix a bug, open an new pull request
