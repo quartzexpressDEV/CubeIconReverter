@@ -1,9 +1,12 @@
 # CubeIconReverter
 
+[![GitHub version](https://badge.fury.io/gh/quartzexpressDEV%2FCubeIconReverter.svg)](https://github.com/quartzexpressDEV/CubeIconReverter/releases/latest)
 [![DownLoads](https://img.shields.io/github/downloads/quartzexpressDEV/CubeIconReverter/total.svg)]()
 [![GitHub stars](https://img.shields.io/github/stars/quartzexpressDEV/CubeIconReverter.svg)]()
 
 ### something to revert the ugly new Icons in CubeCraft
+
+[Download here](https://github.com/quartzexpressDEV/CubeIconReverter/releases/latest)
 
 ![Image](./assets/app_image.png)<br>
 
