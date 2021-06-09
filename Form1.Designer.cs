@@ -42,6 +42,7 @@ namespace CubeIconReverter
             this.Header = new System.Windows.Forms.Panel();
             this.removeCCTitle_label = new System.Windows.Forms.Label();
             this.customHealthBar_label = new System.Windows.Forms.Label();
+            this.modulesBox = new System.Windows.Forms.ComboBox();
             this.customHealthBar = new CubeIconReverter.Toggle();
             this.removecubeTitle = new CubeIconReverter.Toggle();
             this.Header.SuspendLayout();
@@ -177,6 +178,17 @@ namespace CubeIconReverter
             this.customHealthBar_label.TabIndex = 12;
             this.customHealthBar_label.Text = "Custom Health Bar";
             // 
+            // modulesBox
+            // 
+            this.modulesBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.modulesBox.Enabled = false;
+            this.modulesBox.FormattingEnabled = true;
+            this.modulesBox.Location = new System.Drawing.Point(500, 260);
+            this.modulesBox.Name = "modulesBox";
+            this.modulesBox.Size = new System.Drawing.Size(250, 25);
+            this.modulesBox.TabIndex = 13;
+            this.modulesBox.SelectedIndexChanged += new System.EventHandler(this.modulesBox_SelectedIndexChanged);
+            // 
             // customHealthBar
             // 
             this.customHealthBar.AutoSize = true;
@@ -190,6 +202,7 @@ namespace CubeIconReverter
             this.customHealthBar.Size = new System.Drawing.Size(45, 22);
             this.customHealthBar.TabIndex = 11;
             this.customHealthBar.UseVisualStyleBackColor = true;
+            this.customHealthBar.CheckedChanged += new System.EventHandler(this.customHealthBar_CheckedChanged);
             // 
             // removecubeTitle
             // 
@@ -212,6 +225,7 @@ namespace CubeIconReverter
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(60)))));
             this.ClientSize = new System.Drawing.Size(800, 500);
+            this.Controls.Add(this.modulesBox);
             this.Controls.Add(this.customHealthBar_label);
             this.Controls.Add(this.customHealthBar);
             this.Controls.Add(this.removecubeTitle);
@@ -233,6 +247,7 @@ namespace CubeIconReverter
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CubeIconReverter";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.Header.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -255,6 +270,7 @@ namespace CubeIconReverter
         private Toggle removecubeTitle;
         private Toggle customHealthBar;
         private Label customHealthBar_label;
+        private ComboBox modulesBox;
     }
 }
 
