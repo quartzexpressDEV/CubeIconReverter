@@ -135,9 +135,9 @@ namespace CubeIconReverter
             this.credits.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.credits.Location = new System.Drawing.Point(520, 125);
             this.credits.Name = "credits";
-            this.credits.Size = new System.Drawing.Size(75, 21);
+            this.credits.Size = new System.Drawing.Size(174, 21);
             this.credits.TabIndex = 7;
-            this.credits.Text = "By quartz";
+            this.credits.Text = "By quartz, BoredSathvik";
             // 
             // Header
             // 

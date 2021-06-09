@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("CubeIconReverter")]
 [assembly: AssemblyDescription("A tool to remove the new item icons in cubecraft")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("quartzexpress"")]
+[assembly: AssemblyCompany("quartzexpress, BoredSathvik")]
 [assembly: AssemblyProduct("CubeIconReverter")]
 [assembly: AssemblyCopyright("")]
 [assembly: AssemblyTrademark("")]
