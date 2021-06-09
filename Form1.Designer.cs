@@ -71,7 +71,7 @@ namespace CubeIconReverter
             // 
             // start
             // 
-            this.start.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(238)))), ((int)(((byte)(153)))));
+            this.start.BackColor = System.Drawing.Color.LimeGreen;
             this.start.FlatAppearance.BorderSize = 0;
             this.start.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.start.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);

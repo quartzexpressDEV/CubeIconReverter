@@ -10,7 +10,7 @@ namespace CubeIconReverter
     public partial class Form1 : Form
     {
         private readonly string cachepath = $"{Environment.GetEnvironmentVariable("localappdata")}\\Packages\\Microsoft.MinecraftUWP_8wekyb3d8bbwe\\localcache\\minecraftpe\\packcache\\resource";
-        private readonly string url = "https://reinindieol.ga/cdn/cubeiconreverter/packs";
+        private readonly string url = "https://github.com/quartzexpressDEV/anticcpack/archive/refs/heads/main.zip";
         public Form1()
         {
             InitializeComponent();
@@ -49,7 +49,7 @@ namespace CubeIconReverter
             try
             {
                 WebClient wc = new WebClient();
-                wc.DownloadFile($"{url}/default.zip", $"{cachepath}\\default.zip");
+                wc.DownloadFile(url, $"{cachepath}\\default.zip");
                 ZipFile.ExtractToDirectory($"{cachepath}\\default.zip", $"{cachepath}\\anticcpack");
                 status.Text = "pack downloaded";
                 File.Delete($"{cachepath}\\default.zip");
@@ -59,7 +59,8 @@ namespace CubeIconReverter
                 }
                 if (customHealthBar.Checked)
                 {
-                    wc.DownloadFile($"{url}/healthbar.png", $"{cachepath}\\anticcpack\\font\\glyph_E1.png");
+                    File.Delete($"{cachepath}\\anticcpack\\font\\glyph_E1.png")
+                    File.Move($"{cachepath}\\anticcpack\\_modules\\health_bar\\glyph_E1.png", $"{cachepath}\\anticcpack\\font\\glyph_E1.png");
                 }
                 wc.Dispose();
             }
