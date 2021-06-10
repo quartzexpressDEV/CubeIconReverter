@@ -42,9 +42,9 @@ namespace CubeIconReverter
             this.Header = new System.Windows.Forms.Panel();
             this.removeCCTitle_label = new System.Windows.Forms.Label();
             this.customHealthBar_label = new System.Windows.Forms.Label();
-            this.modulesBox = new System.Windows.Forms.ComboBox();
             this.customHealthBar = new CubeIconReverter.Toggle();
             this.removecubeTitle = new CubeIconReverter.Toggle();
+            this.hbSelectBtn = new System.Windows.Forms.Button();
             this.Header.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -178,24 +178,6 @@ namespace CubeIconReverter
             this.customHealthBar_label.TabIndex = 12;
             this.customHealthBar_label.Text = "Custom Health Bar";
             // 
-            // modulesBox
-            // 
-            this.modulesBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(30)))), ((int)(((byte)(50)))));
-            this.modulesBox.DropDownHeight = 100;
-            this.modulesBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.modulesBox.Enabled = false;
-            this.modulesBox.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.modulesBox.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.modulesBox.ForeColor = System.Drawing.Color.White;
-            this.modulesBox.FormattingEnabled = true;
-            this.modulesBox.IntegralHeight = false;
-            this.modulesBox.Location = new System.Drawing.Point(280, 295);
-            this.modulesBox.Margin = new System.Windows.Forms.Padding(0);
-            this.modulesBox.Name = "modulesBox";
-            this.modulesBox.Size = new System.Drawing.Size(250, 28);
-            this.modulesBox.TabIndex = 13;
-            this.modulesBox.SelectedIndexChanged += new System.EventHandler(this.modulesBox_SelectedIndexChanged);
-            // 
             // customHealthBar
             // 
             this.customHealthBar.AutoSize = true;
@@ -226,13 +208,28 @@ namespace CubeIconReverter
             this.removecubeTitle.TabIndex = 10;
             this.removecubeTitle.UseVisualStyleBackColor = true;
             // 
+            // hbSelectBtn
+            // 
+            this.hbSelectBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(30)))), ((int)(((byte)(50)))));
+            this.hbSelectBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(80)))), ((int)(((byte)(100)))));
+            this.hbSelectBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.hbSelectBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
+            this.hbSelectBtn.Location = new System.Drawing.Point(279, 293);
+            this.hbSelectBtn.Name = "hbSelectBtn";
+            this.hbSelectBtn.Size = new System.Drawing.Size(200, 30);
+            this.hbSelectBtn.TabIndex = 14;
+            this.hbSelectBtn.Text = "Select HealthBar";
+            this.hbSelectBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.hbSelectBtn.UseVisualStyleBackColor = false;
+            this.hbSelectBtn.Click += new System.EventHandler(this.hbSelectBtn_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(60)))));
             this.ClientSize = new System.Drawing.Size(800, 500);
-            this.Controls.Add(this.modulesBox);
+            this.Controls.Add(this.hbSelectBtn);
             this.Controls.Add(this.customHealthBar_label);
             this.Controls.Add(this.customHealthBar);
             this.Controls.Add(this.removecubeTitle);
@@ -277,7 +274,7 @@ namespace CubeIconReverter
         private Toggle removecubeTitle;
         private Toggle customHealthBar;
         private Label customHealthBar_label;
-        private ComboBox modulesBox;
+        private Button hbSelectBtn;
     }
 }
 

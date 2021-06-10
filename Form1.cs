@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.IO.Compression;
@@ -11,6 +12,9 @@ namespace CubeIconReverter
     {
         private readonly string cachepath = $"{Environment.GetEnvironmentVariable("localappdata")}\\Packages\\Microsoft.MinecraftUWP_8wekyb3d8bbwe\\localcache\\minecraftpe\\packcache\\resource";
         private readonly string url = "https://github.com/quartzexpressDEV/anticcpack/archive/refs/heads/main.zip";
+        int hbSelectedIndex = -1;
+        List<String> hbNames = new List<String>();
+
         public Form1()
         {
             InitializeComponent();
@@ -61,7 +65,7 @@ namespace CubeIconReverter
                 }
                 if (customHealthBar.Checked)
                 {
-                    string filename = Modules.getFileNameByIndex(modulesBox.SelectedIndex);
+                    string filename = Modules.getFileNameByIndex(hbSelectedIndex);
                     File.Delete($"{cachepath}\\anticcpack\\font\\glyph_E1.png");
                     File.Move($"{cachepath}\\anticcpack\\_modules\\health_bar\\{filename}", $"{cachepath}\\anticcpack\\font\\glyph_E1.png");
                 }
@@ -82,27 +86,82 @@ namespace CubeIconReverter
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            Modules.Get().ForEach((name) => modulesBox.Items.Add(name));
-            modulesBox.Hide();
+            Modules.Get().ForEach((name) => hbNames.Add(name));
+            hbSelectBtn.Hide();
         }
         private void customHealthBar_CheckedChanged(object sender, EventArgs e)
         {
             if (customHealthBar.Checked)
             {
-                modulesBox.Show();
-                modulesBox.Enabled = true;
+                hbSelectBtn.Show();
                 start.Enabled = false;
             }
             else
             {
-                modulesBox.Hide();
-                modulesBox.Enabled = false;
+                hbSelectBtn.Hide();
                 start.Enabled = true;
             }
         }
-        private void modulesBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void hbSelectBtn_Click(object sender, EventArgs e)
         {
-            if (modulesBox.SelectedIndex >= 0)
+            var button = sender as Button;
+
+            // create fake items list
+
+            var listViewItems = hbNames.ConvertAll(x => new ListViewItem(x));
+            listViewItems.ForEach(lvi =>
+            {
+                //lvi.ForeColor = Color.FromArgb(255, 255, 255);
+            });
+
+            ListView listView = new ListView();
+            listView.View = View.Tile;
+            listView.MultiSelect = false;
+            //listView.BackColor = Color.FromArgb(10, 20, 40);
+            
+            listView.Items.AddRange(listViewItems.ToArray());
+
+            // calculate size of list from the listViewItems' height
+            int itemToShow = listViewItems.Count;
+            var lastItemToShow = listViewItems[listViewItems.GetRange(0, itemToShow).Count - 1];
+            int height = lastItemToShow.Bounds.Bottom + listView.Margin.Top;
+            listView.Height = height;
+
+            listView.HotTracking = true;
+            listView.Activation = ItemActivation.OneClick;
+            listView.ItemActivate += new EventHandler(listView_ItemActivate);
+
+            // create a new popup and add the list view to it
+            var popup = new ToolStripDropDown();
+            popup.AutoSize = false;
+            popup.Margin = Padding.Empty;
+            popup.Padding = Padding.Empty;
+            ToolStripControlHost host = new ToolStripControlHost(listView);
+            host.Margin = Padding.Empty;
+            host.Padding = Padding.Empty;
+            host.AutoSize = false;
+            host.Size = new Size(200, 150);
+            popup.Size = new Size(200, 150);
+            popup.Items.Add(host);
+
+            // show the popup
+            popup.Show(this, button.Left, button.Bottom);
+        }
+
+        private void listView_ItemActivate(object sender, EventArgs e)
+        {
+            var listview = sender as ListView;
+            var item = listview.SelectedItems[0].Index;
+            var dropdown = listview.Parent as ToolStripDropDown;
+
+            this.hbSelectBtn.Text = listview.SelectedItems[0].Text;
+
+            listview.SelectedIndexChanged -= listView_ItemActivate;
+            dropdown.Close();
+
+            hbSelectedIndex = item;
+
+            if (hbSelectedIndex >= 0)
             {
                 start.Enabled = true;
             }
@@ -137,5 +196,6 @@ namespace CubeIconReverter
                 Location = p3;
             }
         }
-    }
+
+        }
 }
