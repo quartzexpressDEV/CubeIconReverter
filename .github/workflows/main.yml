@@ -29,7 +29,7 @@ jobs:
         uses: microsoft/setup-msbuild@v1.0.2
 
       - name: install dependencies
-        run: msbuild -t:restore
+        run: msbuild -p:RestorePackagesConfig=true
         
       - name: build project
         run: msbuild cubeiconreverter.csproj -property:Configuration=Release
