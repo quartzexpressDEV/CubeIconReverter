@@ -10,10 +10,11 @@ namespace CubeIconReverter
 {
     public partial class Form1 : Form
     {
+        public string version = Updater.version;
         private readonly string cachepath = $"{Environment.GetEnvironmentVariable("localappdata")}\\Packages\\Microsoft.MinecraftUWP_8wekyb3d8bbwe\\localcache\\minecraftpe\\packcache\\resource";
         private readonly string url = "https://github.com/quartzexpressDEV/anticcpack/archive/refs/heads/main.zip";
         int hbSelectedIndex = -1;
-        List<String> hbNames = new List<String>();
+        List<string> hbNames = new List<string>();
 
         public Form1()
         {
@@ -86,7 +87,16 @@ namespace CubeIconReverter
         }
         private void Form1_Load(object sender, EventArgs e)
         {
+            Updater.DeleteOldVersion();
             Modules.Get().ForEach((name) => hbNames.Add(name));
+            if (version != Updater.Get().tag_name) {
+                DialogResult result = MessageBox.Show($"New Update v${Updater.releases.tag_name}\nDo you want to update?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+            
+                if(result == DialogResult.Yes)
+                {
+                    Updater.Update();
+                }
+            };
             hbSelectBtn.Hide();
         }
         private void customHealthBar_CheckedChanged(object sender, EventArgs e)
