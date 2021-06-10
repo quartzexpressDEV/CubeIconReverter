@@ -36,3 +36,8 @@ jobs:
         
       - name: build project
         run: msbuild cubeiconreverter.csproj -property:Configuration=Release -restore
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: cubeiconreverter
+          path: D:\a\CubeIconReverter\CubeIconReverter\bin\Release\
