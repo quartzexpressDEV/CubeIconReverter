@@ -27,12 +27,17 @@ jobs:
       
       - name: Add msbuild to PATH
         uses: microsoft/setup-msbuild@v1.0.2
-      # Runs a single command using the runners shell
-      - name: build projectgo fi
-        run: msbuild cubeiconreverter.csproj -property:Configuration=Release
+        
+      - name: Setup NuGet.exe for use with actions
+        uses: NuGet/setup-nuget@v1.0.5
+  
+      - name: get dependencies
+        run: nuget restore
+        
+      - name: build project
+        run: msbuild cubeiconreverter.csproj -property:Configuration=Release -restore
 
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+      - uses: actions/upload-artifact@v2
+        with:
+          name: cubeiconreverter
+          path: D:\a\CubeIconReverter\CubeIconReverter\bin\Release\
