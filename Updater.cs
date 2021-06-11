@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -21,6 +22,7 @@ namespace CubeIconReverter
         public static LatestReleases Get()
         {
             WebClient wc = new WebClient();
+            wc.Headers.Add("User-Agent", "request");
             var json = JsonConvert.DeserializeObject<LatestReleases>(wc.DownloadString("https://api.github.com/repos/quartzexpressDEV/CubeIconReverter/releases/latest"));
             wc.Dispose();
             Updater.releases = json;
@@ -40,7 +42,7 @@ namespace CubeIconReverter
                 }
             };
             newApp.Start();
-            Form1.ActiveForm.Close();
+            Application.Exit();
         }
 
         public static void DeleteOldVersion() {
@@ -48,7 +50,7 @@ namespace CubeIconReverter
 
             for (int i = 0; i < files.Length; i++)
             {
-                if (files[i].StartsWith("CubeIconReverter") && files[i].EndsWith(".exe") && files[i] != $"CubeIconReverter@{version}.exe")
+                if (files[i].StartsWith("CubeIconReverter") && files[i] != $"CubeIconReverter@{version}.exe")
                 {
                     File.Delete($"{Updater.pathToExe}\\{files[i]}");
                 }
