@@ -137,7 +137,7 @@ namespace CubeIconReverter
             int height = lastItemToShow.Bounds.Bottom + listView.Margin.Top;
             listView.Height = height;
 
-            listView.HotTracking = true;
+            listView.HotTracking = false;
             listView.Activation = ItemActivation.OneClick;
             listView.ItemActivate += new EventHandler(listView_ItemActivate);
 
