@@ -45,6 +45,7 @@ namespace CubeIconReverter
             this.customHealthBar = new CubeIconReverter.Toggle();
             this.removecubeTitle = new CubeIconReverter.Toggle();
             this.hbSelectBtn = new System.Windows.Forms.Button();
+            this.update = new System.Windows.Forms.Label();
             this.Header.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -223,12 +224,22 @@ namespace CubeIconReverter
             this.hbSelectBtn.UseVisualStyleBackColor = false;
             this.hbSelectBtn.Click += new System.EventHandler(this.hbSelectBtn_Click);
             // 
+            // update
+            // 
+            this.update.AutoSize = true;
+            this.update.Location = new System.Drawing.Point(12, 52);
+            this.update.Name = "update";
+            this.update.Size = new System.Drawing.Size(39, 19);
+            this.update.TabIndex = 15;
+            this.update.Text = "0.0.0";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(60)))));
             this.ClientSize = new System.Drawing.Size(800, 500);
+            this.Controls.Add(this.update);
             this.Controls.Add(this.hbSelectBtn);
             this.Controls.Add(this.customHealthBar_label);
             this.Controls.Add(this.customHealthBar);
@@ -275,6 +286,7 @@ namespace CubeIconReverter
         private Toggle customHealthBar;
         private Label customHealthBar_label;
         private Button hbSelectBtn;
+        private Label update;
     }
 }
 

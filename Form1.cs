@@ -10,10 +10,11 @@ namespace CubeIconReverter
 {
     public partial class Form1 : Form
     {
+        public string version = Updater.version;
         private readonly string cachepath = $"{Environment.GetEnvironmentVariable("localappdata")}\\Packages\\Microsoft.MinecraftUWP_8wekyb3d8bbwe\\localcache\\minecraftpe\\packcache\\resource";
         private readonly string url = "https://github.com/quartzexpressDEV/anticcpack/archive/refs/heads/main.zip";
         int hbSelectedIndex = -1;
-        List<String> hbNames = new List<String>();
+        List<string> hbNames = new List<string>();
 
         public Form1()
         {
@@ -70,8 +71,7 @@ namespace CubeIconReverter
                     File.Move($"{cachepath}\\anticcpack\\_modules\\health_bar\\{filename}", $"{cachepath}\\anticcpack\\font\\glyph_E1.png");
                 }
             }
-            catch (Exception e)
-            {
+            catch (Exception e)            {
                 File.WriteAllText("log.txt", e.ToString());
                 if (e is IOException) { status.Text = "Error 1"; } else
                 if (e is UnauthorizedAccessException) { status.Text = "Error 2"; } else
@@ -86,7 +86,19 @@ namespace CubeIconReverter
         }
         private void Form1_Load(object sender, EventArgs e)
         {
+            //this will be uncommented in the release but commented in nightly builds
+            /*
+            Updater.DeleteOldVersion();
             Modules.Get().ForEach((name) => hbNames.Add(name));
+            if (version != Updater.Get().tag_name) {
+                DialogResult result = MessageBox.Show($"New Update v{Updater.releases.tag_name}\nDo you want to update?\nThis is new:\n\n{Updater.releases.body}\n", "Updater", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+                if(result == DialogResult.Yes)
+                {
+                    Updater.Update();
+                }
+            };
+            */
+            update.Text = Updater.version;
             hbSelectBtn.Hide();
         }
         private void customHealthBar_CheckedChanged(object sender, EventArgs e)
@@ -127,7 +139,7 @@ namespace CubeIconReverter
             int height = lastItemToShow.Bounds.Bottom + listView.Margin.Top;
             listView.Height = height;
 
-            listView.HotTracking = true;
+            listView.HotTracking = false;
             listView.Activation = ItemActivation.OneClick;
             listView.ItemActivate += new EventHandler(listView_ItemActivate);
 
@@ -147,7 +159,6 @@ namespace CubeIconReverter
             // show the popup
             popup.Show(this, button.Left, button.Bottom);
         }
-
         private void listView_ItemActivate(object sender, EventArgs e)
         {
             var listview = sender as ListView;
