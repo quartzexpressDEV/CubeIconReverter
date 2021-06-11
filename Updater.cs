@@ -58,7 +58,7 @@ namespace CubeIconReverter
                     }
                     catch (Exception e)
                     {
-                        if (e is UnauthorizedAccessException) MessageBox.Show(e.ToString());
+                        if (e is UnauthorizedAccessException) return;
                     }
                 }
             }
