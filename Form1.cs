@@ -71,8 +71,7 @@ namespace CubeIconReverter
                     File.Move($"{cachepath}\\anticcpack\\_modules\\health_bar\\{filename}", $"{cachepath}\\anticcpack\\font\\glyph_E1.png");
                 }
             }
-            catch (Exception e)
-            {
+            catch (Exception e)            {
                 File.WriteAllText("log.txt", e.ToString());
                 if (e is IOException) { status.Text = "Error 1"; } else
                 if (e is UnauthorizedAccessException) { status.Text = "Error 2"; } else
@@ -90,13 +89,14 @@ namespace CubeIconReverter
             Updater.DeleteOldVersion();
             Modules.Get().ForEach((name) => hbNames.Add(name));
             if (version != Updater.Get().tag_name) {
-                DialogResult result = MessageBox.Show($"New Update v${Updater.releases.tag_name}\nDo you want to update?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+                DialogResult result = MessageBox.Show($"New Update v{Updater.releases.tag_name}\nDo you want to update?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
             
                 if(result == DialogResult.Yes)
                 {
                     Updater.Update();
                 }
             };
+            update.Text = Updater.version;
             hbSelectBtn.Hide();
         }
         private void customHealthBar_CheckedChanged(object sender, EventArgs e)
