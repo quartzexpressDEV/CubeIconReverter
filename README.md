@@ -1,7 +1,7 @@
 # CubeIconReverter
 
 [![GitHub version](https://badge.fury.io/gh/quartzexpressDEV%2FCubeIconReverter.svg)](https://github.com/quartzexpressDEV/CubeIconReverter/releases/latest)
-[![DownLoads](https://img.shields.io/github/downloads/quartzexpressDEV/CubeIconReverter/total.svg)]()
+[![DownLoads](https://img.shields.io/github/downloads/quartzexpressDEV/CubeIconReverter/total.svg)](https://github.com/quartzexpressDEV/CubeIconReverter/releases/latest)
 [![GitHub stars](https://img.shields.io/github/stars/quartzexpressDEV/CubeIconReverter.svg)]()
 [![Discord](https://img.shields.io/discord/852141390267023450)](https://discord.gg/tW2NuJyJTs)
 
