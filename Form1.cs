@@ -89,8 +89,7 @@ namespace CubeIconReverter
             Updater.DeleteOldVersion();
             Modules.Get().ForEach((name) => hbNames.Add(name));
             if (version != Updater.Get().tag_name) {
-                DialogResult result = MessageBox.Show($"New Update v{Updater.releases.tag_name}\nDo you want to update?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
-            
+                DialogResult result = MessageBox.Show($"New Update v{Updater.releases.tag_name}\nDo you want to update?\nThis is new:\n\n{Updater.releases.body}\n", "Updater", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
                 if(result == DialogResult.Yes)
                 {
                     Updater.Update();
@@ -157,7 +156,6 @@ namespace CubeIconReverter
             // show the popup
             popup.Show(this, button.Left, button.Bottom);
         }
-
         private void listView_ItemActivate(object sender, EventArgs e)
         {
             var listview = sender as ListView;
