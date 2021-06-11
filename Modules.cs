@@ -2,10 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
 
 namespace CubeIconReverter
 {
@@ -28,7 +25,7 @@ namespace CubeIconReverter
         }
         public static string getFileNameByIndex(int index)
         {
-            
+
             IEnumerable<string> ie = Modules.modules.Select(modul => modul.fileName);
             List<string> a = new List<string>();
             a.AddRange(ie);

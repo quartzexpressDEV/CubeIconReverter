@@ -1,15 +1,11 @@
-﻿using System;
+﻿using System.Threading;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
 using System.Net;
-using System.Net.Http.Headers;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
 
 
 namespace CubeIconReverter
@@ -41,18 +37,29 @@ namespace CubeIconReverter
                     FileName = $"CubeIconReverter@{releases.tag_name}.exe"
                 }
             };
+
             newApp.Start();
             Application.Exit();
         }
 
-        public static void DeleteOldVersion() {
+        public static void DeleteOldVersion()
+        {
+            Thread.Sleep(1000);
             string[] files = Directory.GetFiles(pathToExe);
+
 
             for (int i = 0; i < files.Length; i++)
             {
-                if (files[i].StartsWith("CubeIconReverter") && files[i] != $"CubeIconReverter@{version}.exe")
+                if (Path.GetFileName(files[i]).StartsWith("CubeIconReverter") && Path.GetFileName(files[i]).EndsWith(".exe") && Path.GetFileName(files[i]) != $"CubeIconReverter@{version}.exe")
                 {
-                    File.Delete($"{Updater.pathToExe}\\{files[i]}");
+                    try
+                    {
+                        File.Delete($"{files[i]}");
+                    }
+                    catch (Exception e)
+                    {
+                        if (e is UnauthorizedAccessException) MessageBox.Show(e.ToString());
+                    }
                 }
             }
         }
