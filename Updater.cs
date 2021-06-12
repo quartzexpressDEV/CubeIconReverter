@@ -23,8 +23,9 @@ namespace CubeIconReverter
             try
             {
                 json = JsonConvert.DeserializeObject<LatestReleases>(wc.DownloadString("https://api.github.com/repos/quartzexpressDEV/CubeIconReverter/releases/latest"));
-            
-                catch(Exception e)
+            }
+
+            catch (Exception e)
             {
                 Handlers.ReportException(e);
             }
