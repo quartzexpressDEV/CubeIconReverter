@@ -16,7 +16,7 @@ namespace CubeIconReverter
         {
             if (Path.GetFileName(System.Reflection.Assembly.GetEntryAssembly().Location) != filename)
             {
-                Process.Start("cmd.exe", $"/C taskkill /f /im {Path.GetFileName(System.Reflection.Assembly.GetEntryAssembly().Location)} & ren {System.Reflection.Assembly.GetEntryAssembly().Location} {filename} & start {filename}");
+                Process.Start("cmd.exe", $"/C taskkill /f /im {Path.GetFileName(System.Reflection.Assembly.GetEntryAssembly().Location)} & ren {System.Reflection.Assembly.GetEntryAssembly().Location} {filename} & start CubeIconReverter@{Updater.releases.tag_name}.exe");
             }
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
