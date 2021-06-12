@@ -12,7 +12,8 @@ namespace CubeIconReverter
 {
     class Updater
     {
-        public static string version = "1.3.1";
+        public static string version = "1.3.2";
+        public static bool nightly = false;
         public static string pathToExe = Path.GetDirectoryName(Application.ExecutablePath);
         public static LatestReleases releases = new LatestReleases();
         public static LatestReleases Get()

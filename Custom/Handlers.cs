@@ -12,7 +12,7 @@ namespace CubeIconReverter
         public static void ReportException(Exception e)
         {
             //if this causes an exception im gonna cry
-            File.AppendAllText("log.txt", $"\n{DateTime.Today}\n{e}");
+            File.AppendAllText("log.txt", $"\n{DateTime.Now}\n{e}");
         }
     }
 }

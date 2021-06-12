@@ -14,10 +14,15 @@ namespace CubeIconReverter
         [STAThread]
         static void Main()
         {
-            if (Path.GetFileName(System.Reflection.Assembly.GetEntryAssembly().Location) != filename)
+            /*if (Path.GetFileName(System.Reflection.Assembly.GetEntryAssembly().Location) != filename)
             {
-                Process.Start("cmd.exe", $"/C taskkill /f /im {Path.GetFileName(System.Reflection.Assembly.GetEntryAssembly().Location)} & ren {System.Reflection.Assembly.GetEntryAssembly().Location} {filename} & start CubeIconReverter@{Updater.releases.tag_name}.exe");
+                File.WriteAllText("temp.bat", $"/C taskkill /f /im {Path.GetFileName(System.Reflection.Assembly.GetEntryAssembly().Location)} & if exist CubeIconReverter.exe (del /q CubeIconReverter.exe )& ren {System.Reflection.Assembly.GetEntryAssembly().Location} {filename} & start CubeIconReverter@{Updater.releases.tag_name}.exe");
+                Process.Start("cmd.exe", "temp.bat");
             }
+            if (File.Exists("temp.bat"))
+            {
+                File.Delete("temp.bat");
+            }*/
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
