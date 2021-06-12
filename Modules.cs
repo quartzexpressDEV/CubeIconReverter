@@ -14,14 +14,23 @@ namespace CubeIconReverter
 
         public static List<string> Get()
         {
-            WebClient wc = new WebClient();
-            var json = JsonConvert.DeserializeObject<modulesClass[]>(wc.DownloadString("https://raw.githubusercontent.com/quartzexpressDEV/anticcpack/main/_modules/health_bar/health_bar.json"));
-            wc.Dispose();
-            Modules.modules.AddRange(json);
-            IEnumerable<string> ie = json.Select(modul => modul.name);
-            List<string> a = new List<string>();
-            a.AddRange(ie);
-            return a;
+            try
+            {
+                WebClient wc = new WebClient();
+                var json = JsonConvert.DeserializeObject<modulesClass[]>(wc.DownloadString("https://raw.githubusercontent.com/quartzexpressDEV/anticcpack/main/_modules/health_bar/health_bar.json"));
+                wc.Dispose();
+                Modules.modules.AddRange(json);
+                IEnumerable<string> ie = json.Select(modul => modul.name);
+                List<string> a = new List<string>();
+                a.AddRange(ie);
+                return a;
+            }
+            catch(Exception e)
+            {
+                Handlers.ReportException(e);
+                return new List<string> { "Error" };
+            }
+
         }
         public static string getFileNameByIndex(int index)
         {

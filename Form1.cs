@@ -54,6 +54,7 @@ namespace CubeIconReverter
             }
             catch (Exception e)
             {
+                Handlers.ReportException(e);
                 Console.WriteLine(e);
                 status.Text = $"error: {e.Message}";
                 if (e is IOException) { status.Text = "Error 1"; }
@@ -84,8 +85,9 @@ namespace CubeIconReverter
                     File.Move($"{cachepath}\\anticcpack\\_modules\\health_bar\\{filename}", $"{cachepath}\\anticcpack\\font\\glyph_E1.png");
                 }
             }
-            catch (Exception e)            {
-                File.WriteAllText("log.txt", e.ToString());
+            catch (Exception e)
+            {
+                Handlers.ReportException(e);
                 if (e is IOException) { status.Text = "Error 1"; } else
                 if (e is UnauthorizedAccessException) { status.Text = "Error 2"; } else
                 if (e is WebException) { status.Text = "Error 3"; } else

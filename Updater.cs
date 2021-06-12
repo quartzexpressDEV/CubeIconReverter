@@ -12,14 +12,22 @@ namespace CubeIconReverter
 {
     class Updater
     {
-        public static string version = "1.3.0";
+        public static string version = "1.3.1";
         public static string pathToExe = Path.GetDirectoryName(Application.ExecutablePath);
         public static LatestReleases releases = new LatestReleases();
         public static LatestReleases Get()
         {
+            CubeIconReverter.Updater.LatestReleases json = new CubeIconReverter.Updater.LatestReleases();
             WebClient wc = new WebClient();
             wc.Headers.Add("User-Agent", "request");
-            var json = JsonConvert.DeserializeObject<LatestReleases>(wc.DownloadString("https://api.github.com/repos/quartzexpressDEV/CubeIconReverter/releases/latest"));
+            try
+            {
+                json = JsonConvert.DeserializeObject<LatestReleases>(wc.DownloadString("https://api.github.com/repos/quartzexpressDEV/CubeIconReverter/releases/latest"));
+            
+                catch(Exception e)
+            {
+                Handlers.ReportException(e);
+            }
             wc.Dispose();
             Updater.releases = json;
             return json;
@@ -27,9 +35,14 @@ namespace CubeIconReverter
 
         public static void Update()
         {
-            WebClient wc = new WebClient();
-            wc.DownloadFile(Updater.releases.assets[0].browser_download_url, $"{Updater.pathToExe}\\CubeIconReverter@{releases.tag_name}.exe");
-            wc.Dispose();
+            try
+            {
+                WebClient wc = new WebClient();
+                wc.DownloadFile(Updater.releases.assets[0].browser_download_url, $"{Updater.pathToExe}\\CubeIconReverter@{releases.tag_name}.exe");
+                wc.Dispose();
+            }
+            catch (Exception e) { Handlers.ReportException(e); }
+            
             Process newApp = new Process
             {
                 StartInfo = new ProcessStartInfo
@@ -58,7 +71,7 @@ namespace CubeIconReverter
                     }
                     catch (Exception e)
                     {
-                        if (e is UnauthorizedAccessException) return;
+                        Handlers.ReportException(e);
                     }
                 }
             }
