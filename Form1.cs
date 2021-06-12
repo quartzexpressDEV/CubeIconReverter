@@ -4,6 +4,7 @@ using System.Drawing;
 using System.IO;
 using System.IO.Compression;
 using System.Net;
+using System.Reflection;
 using System.Windows.Forms;
 
 namespace CubeIconReverter
@@ -18,6 +19,18 @@ namespace CubeIconReverter
 
         public Form1()
         {
+            AppDomain.CurrentDomain.AssemblyResolve += (sender, args) =>
+            {
+                string resourceName = new AssemblyName(args.Name).Name + ".dll";
+                string resource = Array.Find(this.GetType().Assembly.GetManifestResourceNames(), element => element.EndsWith(resourceName));
+
+                using (var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(resource))
+                {
+                    Byte[] assemblyData = new Byte[stream.Length];
+                    stream.Read(assemblyData, 0, assemblyData.Length);
+                    return Assembly.Load(assemblyData);
+                }
+            };
             InitializeComponent();
         }
 
@@ -41,6 +54,7 @@ namespace CubeIconReverter
             }
             catch (Exception e)
             {
+                Handlers.ReportException(e);
                 Console.WriteLine(e);
                 status.Text = $"error: {e.Message}";
                 if (e is IOException) { status.Text = "Error 1"; }
@@ -71,8 +85,9 @@ namespace CubeIconReverter
                     File.Move($"{cachepath}\\anticcpack\\_modules\\health_bar\\{filename}", $"{cachepath}\\anticcpack\\font\\glyph_E1.png");
                 }
             }
-            catch (Exception e)            {
-                File.WriteAllText("log.txt", e.ToString());
+            catch (Exception e)
+            {
+                Handlers.ReportException(e);
                 if (e is IOException) { status.Text = "Error 1"; } else
                 if (e is UnauthorizedAccessException) { status.Text = "Error 2"; } else
                 if (e is WebException) { status.Text = "Error 3"; } else
@@ -86,8 +101,8 @@ namespace CubeIconReverter
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            //this will be uncommented in the release but commented in nightly builds
-            /*
+            //this will be commented in nightly builds
+            
             Updater.DeleteOldVersion();
             Modules.Get().ForEach((name) => hbNames.Add(name));
             if (version != Updater.Get().tag_name) {
@@ -97,7 +112,7 @@ namespace CubeIconReverter
                     Updater.Update();
                 }
             };
-            */
+            
             update.Text = Updater.version;
             hbSelectBtn.Hide();
         }
