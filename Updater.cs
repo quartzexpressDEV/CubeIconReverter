@@ -22,7 +22,7 @@ namespace CubeIconReverter
             wc.Headers.Add("User-Agent", "request");
             try
             {
-                json = JsonConvert.DeserializeObject<LatestReleases>(wc.DownloadString("https://api.github.com/repos/quartzexpressDEV/CubeIconReverter/releases/latest"));
+                json = JsonConvert.DeserializeObject<LatestReleases>(wc.DownloadString("https://api.github.com/repos/quartzexpressDEV/CubeIconReverter/releases/latest"));}
             }
 
             catch (Exception e)
