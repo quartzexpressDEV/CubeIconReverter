@@ -71,7 +71,7 @@ namespace CubeIconReverter
                     }
                     catch (Exception e)
                     {
-                        Handlers.ReportException(e);
+                        if (e is UnauthorizedAccessException) return; else Handlers.ReportException(e);
                     }
                 }
             }
