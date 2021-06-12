@@ -102,7 +102,7 @@ namespace CubeIconReverter
         private void Form1_Load(object sender, EventArgs e)
         {
             //this will be commented in nightly builds
-            
+            /*
             Updater.DeleteOldVersion();
             Modules.Get().ForEach((name) => hbNames.Add(name));
             if (version != Updater.Get().tag_name) {
@@ -112,7 +112,7 @@ namespace CubeIconReverter
                     Updater.Update();
                 }
             };
-            
+            */
             update.Text = Updater.version;
             hbSelectBtn.Hide();
         }
